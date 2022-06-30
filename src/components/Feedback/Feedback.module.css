@@ -78,3 +78,7 @@
     color: red;
     text-shadow: 1px 1px 2px rgb(51, 46, 46), 0 0 1em rgb(105, 23, 78), 0 0 0.2em blue;
 }
+
+.statistics__span{
+    text-transform: capitalize;
+}

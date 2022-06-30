@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './Feedback.module.css';
 
 const FeedbackList = ({ state, onClickBtn }) => {
@@ -22,3 +23,8 @@ const FeedbackList = ({ state, onClickBtn }) => {
 };
 
 export default FeedbackList;
+
+FeedbackList.propTypes = {
+  state: PropTypes.object.isRequired,
+  onClickBtn: PropTypes.func.isRequired,
+};

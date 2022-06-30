@@ -1,23 +1,27 @@
+import PropTypes from 'prop-types';
 import s from './Feedback.module.css';
 
-const StatisticsList = ({ good, neutral, bad, total, positivePercentage }) => {
+const StatisticsList = ({ total, positivePercentage, options }) => {
   return (
     <ul className={s.statistics__list}>
+      {Object.entries(options).map(([key, value]) => {
+        return (
+          <li className={s.statistics__item} key={key}>
+            <p className={s.statistics__text}>
+              <span className={s.statistics__span}>{key}</span> : {value}
+            </p>
+          </li>
+        );
+      })}
       <li className={s.statistics__item}>
-        <p className={s.statistics__text}>Good : {good}</p>
-      </li>
-      <li className={s.statistics__item}>
-        <p className={s.statistics__text}>Neutral : {neutral}</p>
-      </li>
-      <li className={s.statistics__item}>
-        <p className={s.statistics__text}>Bad : {bad}</p>
-      </li>
-      <li className={s.statistics__item}>
-        <p className={s.statistics__text}>Total : {total}</p>
+        <p className={s.statistics__text}>
+          <span className={s.statistics__span}>total</span> : {total}
+        </p>
       </li>
       <li className={s.statistics__item}>
         <p className={s.statistics__text}>
-          Positive feedback : {positivePercentage}%
+          <span className={s.statistics__span}>positive Percentage</span> :{' '}
+          {positivePercentage}
         </p>
       </li>
     </ul>
@@ -25,3 +29,9 @@ const StatisticsList = ({ good, neutral, bad, total, positivePercentage }) => {
 };
 
 export default StatisticsList;
+
+StatisticsList.propTypes = {
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+  options: PropTypes.object.isRequired,
+};

@@ -1,10 +1,10 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import FeedbackList from './FeedbackList';
 import StatisticsList from './StatisticsList';
 import Section from './Section';
 import Notification from './Notification';
 import s from './Feedback.module.css';
-
 
 class Feedback extends Component {
   state = {
@@ -37,9 +37,7 @@ class Feedback extends Component {
             <Notification message="No feedback given" />
           ) : (
             <StatisticsList
-              good={good}
-              neutral={neutral}
-              bad={bad}
+              options={this.state}
               total={total}
               positivePercentage={total > 0 ? positivePercentage : 0}
             />
@@ -51,3 +49,8 @@ class Feedback extends Component {
 }
 
 export default Feedback;
+
+Feedback.propTypes = {
+  onVisible: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
+}
