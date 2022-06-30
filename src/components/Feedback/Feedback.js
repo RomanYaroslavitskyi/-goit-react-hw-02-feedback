@@ -5,7 +5,6 @@ import Section from './Section';
 import Notification from './Notification';
 import s from './Feedback.module.css';
 
-let visible = false;
 
 class Feedback extends Component {
   state = {
@@ -15,7 +14,7 @@ class Feedback extends Component {
   };
 
   clickOnBtn = ({ target: { name } }) => {
-    visible = true;
+    this.props.onVisible(true);
 
     this.setState(prev => {
       return { [name]: prev[name] + 1 };
@@ -34,7 +33,7 @@ class Feedback extends Component {
           <FeedbackList state={state} onClickBtn={clickOnBtn} />
         </Section>
         <Section title="Statistics">
-          {!visible ? (
+          {!this.props.visible ? (
             <Notification message="No feedback given" />
           ) : (
             <StatisticsList
