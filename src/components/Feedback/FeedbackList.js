@@ -25,10 +25,10 @@ const FeedbackList = ({ state, onClickBtn }) => {
 export default FeedbackList;
 
 FeedbackList.propTypes = {
-  state: PropTypes.shape({
+  state: PropTypes.exact({
     good: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
-  }),
+  }).isRequired,
   onClickBtn: PropTypes.func.isRequired,
 };

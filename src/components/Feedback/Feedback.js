@@ -37,7 +37,9 @@ class Feedback extends Component {
             <Notification message="No feedback given" />
           ) : (
             <StatisticsList
-              options={this.state}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={total}
               positivePercentage={total > 0 ? positivePercentage : 0}
             />
@@ -53,4 +55,4 @@ export default Feedback;
 Feedback.propTypes = {
   onVisible: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired,
-}
+};
