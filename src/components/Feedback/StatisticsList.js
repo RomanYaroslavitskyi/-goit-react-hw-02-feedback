@@ -33,5 +33,9 @@ export default StatisticsList;
 StatisticsList.propTypes = {
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.shape({
+    bad: PropTypes.number.isRequired,
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+  }),
 };

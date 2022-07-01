@@ -25,6 +25,10 @@ const FeedbackList = ({ state, onClickBtn }) => {
 export default FeedbackList;
 
 FeedbackList.propTypes = {
-  state: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+  }),
   onClickBtn: PropTypes.func.isRequired,
 };
